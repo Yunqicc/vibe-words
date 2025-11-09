@@ -1,0 +1,71 @@
+:root {
+  --bg: #0f172a;
+  --panel: #111827;
+  --text: #e5e7eb;
+  --muted: #9ca3af;
+  --primary: #3b82f6;
+  --secondary: #64748b;
+  --success: #10b981;
+  --warning: #f59e0b;
+  --danger: #ef4444;
+}
+
+* { box-sizing: border-box; }
+body {
+  margin: 0;
+  font-family: system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Noto Sans", "Apple Color Emoji", "Segoe UI Emoji";
+  background: linear-gradient(180deg, #0b1220, var(--bg));
+  color: var(--text);
+}
+
+.app-header, .app-footer {
+  padding: 16px 20px;
+  background: rgba(255,255,255,0.03);
+  border-bottom: 1px solid rgba(255,255,255,0.08);
+}
+.app-footer { border-top: 1px solid rgba(255,255,255,0.08); border-bottom: none; text-align: center; }
+.nav a { color: var(--text); text-decoration: none; margin-right: 12px; }
+.nav a:hover { color: var(--primary); }
+
+main#app { max-width: 920px; margin: 24px auto; padding: 0 16px; }
+.view.hidden { display: none; }
+.card {
+  background: var(--panel);
+  border: 1px solid rgba(255,255,255,0.08);
+  border-radius: 12px;
+  padding: 16px;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.25);
+}
+.grid.two { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+.grid.three { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; }
+.metric { text-align: center; background: rgba(255,255,255,0.04); border-radius: 12px; padding: 12px; }
+.metric span { display: block; font-size: 24px; font-weight: 700; }
+.metric small { color: var(--muted); }
+.muted { color: var(--muted); }
+
+.actions { display: flex; gap: 12px; margin-top: 12px; }
+.actions.center { justify-content: center; }
+button { padding: 8px 14px; border-radius: 8px; border: 1px solid rgba(255,255,255,0.2); background: rgba(255,255,255,0.06); color: var(--text); cursor: pointer; }
+button.primary { background: var(--primary); border-color: #1c4ed8; }
+button.secondary { background: var(--secondary); border-color: #334155; }
+button.success { background: var(--success); border-color: #0f766e; }
+button.warning { background: var(--warning); border-color: #b45309; }
+button.danger { background: var(--danger); border-color: #991b1b; }
+button:hover { filter: brightness(1.05); }
+
+.learn-card .flashcard { margin-top: 12px; }
+.flashcard { border: 1px dashed rgba(255,255,255,0.25); border-radius: 12px; padding: 16px; min-height: 160px; }
+.flashcard .word { font-size: 28px; font-weight: 800; }
+.flashcard .phonetic { color: var(--muted); margin-top: 4px; }
+.flashcard .example { margin-top: 10px; }
+.flashcard .definition { font-size: 18px; }
+.flashcard .mnemonic { color: var(--muted); margin-top: 8px; }
+
+.progress { height: 8px; background: rgba(255,255,255,0.08); border-radius: 99px; overflow: hidden; }
+.progress-bar { height: 100%; background: linear-gradient(90deg, var(--primary), #22c55e); transition: width 0.25s ease; }
+
+.choices { list-style: none; padding: 0; }
+.choices li { margin: 8px 0; }
+.choices button { width: 100%; text-align: left; }
+
+.feedback { margin-top: 8px; min-height: 24px; font-weight: 600; }

@@ -1,0 +1,130 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>趣味背单词 | MVP</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <header class="app-header">
+      <h1>趣味背单词（本地版）</h1>
+      <nav class="nav">
+        <a href="#home">首页</a>
+        <a href="#learn">学习</a>
+        <a href="#test">测试</a>
+        <a href="#progress">进度</a>
+      </nav>
+    </header>
+
+    <main id="app">
+      <!-- 首页 -->
+      <section id="view-home" class="view hidden">
+        <div class="card">
+          <h2>今日任务</h2>
+          <div class="grid two">
+            <div>
+              <div class="metric"><span id="metric-new">0</span><small>新词</small></div>
+            </div>
+            <div>
+              <div class="metric"><span id="metric-review">0</span><small>复习词</small></div>
+            </div>
+          </div>
+          <div class="actions">
+            <button id="btn-start-learn" class="primary">开始学习</button>
+            <button id="btn-start-test" class="secondary">开始测试</button>
+            <button id="btn-view-progress">查看进度</button>
+          </div>
+        </div>
+      </section>
+
+      <!-- 学习页（卡片） -->
+      <section id="view-learn" class="view hidden">
+        <div class="card learn-card">
+          <div class="learn-header">
+            <div class="progress">
+              <div id="learn-progress-bar" class="progress-bar" style="width:0%"></div>
+            </div>
+            <div id="learn-progress-text" class="muted">0 / 0</div>
+          </div>
+          <div class="flashcard">
+            <div class="front" id="card-front">
+              <div class="word" id="card-word">word</div>
+              <div class="phonetic" id="card-phonetic">/ˈxˈy/</div>
+              <div class="example" id="card-example">Example sentence.</div>
+            </div>
+            <div class="back hidden" id="card-back">
+              <div class="definition" id="card-definition">释义</div>
+              <div class="pos" id="card-pos">词性</div>
+              <div class="mnemonic" id="card-mnemonic">趣味联想</div>
+            </div>
+          </div>
+          <div class="actions">
+            <button id="btn-flip" class="secondary">翻面</button>
+            <button id="btn-familiar" class="success">认识</button>
+            <button id="btn-vague" class="warning">模糊</button>
+            <button id="btn-unknown" class="danger">不会</button>
+          </div>
+          <div class="actions">
+            <button id="btn-learn-prev">上一词</button>
+            <button id="btn-learn-next" class="primary">下一词</button>
+          </div>
+        </div>
+        <div class="actions center">
+          <button id="btn-learn-finish" class="primary">学习完成，进入测试</button>
+        </div>
+      </section>
+
+      <!-- 测试页 -->
+      <section id="view-test" class="view hidden">
+        <div class="card">
+          <div class="test-header">
+            <div class="progress">
+              <div id="test-progress-bar" class="progress-bar" style="width:0%"></div>
+            </div>
+            <div id="test-progress-text" class="muted">0 / 0</div>
+          </div>
+          <h3 id="test-question-word">word</h3>
+          <ul class="choices" id="test-choices"></ul>
+          <div id="test-feedback" class="feedback"></div>
+          <div class="actions">
+            <button id="btn-next-question" class="primary">下一题</button>
+          </div>
+        </div>
+      </section>
+
+      <!-- 结果页 -->
+      <section id="view-result" class="view hidden">
+        <div class="card">
+          <h2>今日任务完成</h2>
+          <p id="result-summary">已更新统计数据。</p>
+          <div class="actions">
+            <button id="btn-back-home" class="primary">返回首页</button>
+          </div>
+        </div>
+      </section>
+
+      <!-- 进度页 -->
+      <section id="view-progress" class="view hidden">
+        <div class="card">
+          <h2>掌握度统计</h2>
+          <div class="grid three">
+            <div class="metric"><span id="stat-familiar">0</span><small>认识</small></div>
+            <div class="metric"><span id="stat-vague">0</span><small>模糊</small></div>
+            <div class="metric"><span id="stat-unknown">0</span><small>不会</small></div>
+          </div>
+          <canvas id="progress-chart" width="360" height="200"></canvas>
+          <div class="muted" id="stat-days">累计学习天数：0</div>
+          <div class="muted" id="stat-today">今日任务完成：否</div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="app-footer">
+      <small>数据仅保存在浏览器本地 · MVP</small>
+    </footer>
+
+    <script src="words.js"></script>
+    <script src="app.js"></script>
+  </body>
+  </html>
